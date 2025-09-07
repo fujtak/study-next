@@ -1,4 +1,5 @@
 import { NextPage, GetStaticPaths ,GetStaticProps } from "next"
+import { useRouter } from "next/router"
 
 type Props = {
   message: string
@@ -6,6 +7,12 @@ type Props = {
 
 const PageSSGMulti: NextPage<Props> = (props) => {
   const { message } = props
+  const router = useRouter()
+
+  if(router.isFallback) {
+    return <p>...fallback中</p>
+  }
+
   return (
     <>
       <h1>複数のSSGページ</h1>
@@ -19,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: [
       { params: { slug: '1' } },
     ],
-    fallback: 'blocking'
+    fallback: true
   }
 }
 
