@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "next.config.ts"  ],
   "exclude": [
     "Frontend/node_modules"
   ]
