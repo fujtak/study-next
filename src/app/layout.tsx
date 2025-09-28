@@ -1,3 +1,5 @@
+import './global.css'
+
 type LayoutProps = {
   children: React.ReactNode
 }
